@@ -17,5 +17,11 @@ configure_file (
 #so can find Tutorial.h
 include_directories("${PROJECT_BINARY_DIR}")
 
+
+#add library
+include_directories ("${PROJECT_SOURCE_DIR}/MathFunctions")
+add_subdirectory (MathFunctions)
+
 #add the executable
 add_executable(Tutorial tutorial.cxx)
+target_link_libraries (Tutorial MyMathFunctions)
