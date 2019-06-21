@@ -31,3 +31,9 @@ endif (USE_MYMATH)
 #add the executable
 add_executable(Tutorial tutorial.cxx)
 target_link_libraries (Tutorial ${EXTRA_LIBS})
+
+
+#MyMathFunctions安装的类型为Library，Tutorial 安装的类型为Runtime
+#路径 DESTINATION : /usr/local
+install (TARGETS Tutorial DESTINATION bin)
+install (FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
