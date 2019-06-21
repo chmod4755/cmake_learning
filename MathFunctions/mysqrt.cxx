@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "MyMathFunctions.h"
 
 // a hack square root calculation using simple operations
 double mysqrt(double x)
