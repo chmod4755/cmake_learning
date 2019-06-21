@@ -4,10 +4,17 @@ project (Tutorial)
 #define version code
 set (PROJECT_NAME \"Tutorial\")
 set (Tutorial_VERSION_MAJOR 0)
-set (Tutorial_VERSION_MINOR 1)
+set (Tutorial_VERSION_MINOR 6)
 
 #make library optional
 option (USE_MYMATH "Use Tutorial provided math implementation" ON)
+
+#check function exist
+include (CheckFunctionExists)
+check_function_exists (log HAVE_LOG)
+check_function_exists (exp HAVE_EXP)
+#test have
+check_function_exists (wangs HAVE_TEST_WANG)
 
 #pass some settings to source code by configure a header file
 #this header file(.h) are produced by configure file(.h.conf)

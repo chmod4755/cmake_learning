@@ -18,12 +18,16 @@ int main(int argc, char *argv[])
 
     double inputValue = atof(argv[1]);
 
+#ifndef HAVE_TEST_WANG
+    fprintf(stdout, "%s don't have my test function\n", PROJECT_NAME);
+#endif
+
 #ifdef USE_MYMATH
     double outputValue = mysqrt(inputValue);
-    fprintf(stdout,"%s use my math\n", PROJECT_NAME);
+    fprintf(stdout, "%s use my math\n", PROJECT_NAME);
 #else
     double outputValue = sqrt(inputValue);
-    fprintf(stdout,"%s not use my math\n", PROJECT_NAME);
+    fprintf(stdout, "%s not use my math\n", PROJECT_NAME);
 #endif
     fprintf(stdout, "The square root of the number %g is %g\n", inputValue, outputValue);
     return 0;
