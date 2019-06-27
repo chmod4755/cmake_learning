@@ -3,8 +3,8 @@ project (Tutorial)
 
 #define version code
 set (PROJECT_NAME \"Tutorial\")
-set (Tutorial_VERSION_MAJOR 0)
-set (Tutorial_VERSION_MINOR 6)
+set (Tutorial_VERSION_MAJOR 1)
+set (Tutorial_VERSION_MINOR 0)
 
 #make library optional
 option (USE_MYMATH "Use Tutorial provided math implementation" ON)
@@ -44,3 +44,10 @@ target_link_libraries (Tutorial ${EXTRA_LIBS})
 #路径 DESTINATION : /usr/local
 install (TARGETS Tutorial DESTINATION bin)
 install (FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
+
+#build an installer
+include (InstallRequiredSystemLibraries)
+set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
+set (CPACK_PACKAGE_VERSION_MAJOR "${Tutorial_VERSION_MAJOR}")
+set (CPACK_PACKAGE_VERSION_MINOR "${Tutorial_VERSION_MINOR}")
+include (CPack)
